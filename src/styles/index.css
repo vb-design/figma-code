@@ -1,0 +1,101 @@
+@import './fonts.css';
+@import './tailwind.css';
+@import './theme.css';
+
+/* Homepage testimonial carousel */
+.runway-testimonials-carousel {
+  display: flex !important;
+  flex-wrap: nowrap !important;
+  overflow-x: auto !important;
+  overflow-y: hidden !important;
+  scroll-snap-type: x mandatory;
+  scroll-behavior: smooth;
+  scrollbar-width: none;
+  -ms-overflow-style: none;
+  overscroll-behavior-x: contain;
+  gap: 24px !important;
+  margin-bottom: 24px !important;
+  padding-bottom: 4px;
+  cursor: grab;
+}
+
+.runway-testimonials-carousel::-webkit-scrollbar {
+  display: none;
+}
+
+.runway-testimonials-carousel:active {
+  cursor: grabbing;
+}
+
+.runway-testimonials-carousel > * {
+  flex: 0 0 100% !important;
+  min-width: 0 !important;
+  scroll-snap-align: start;
+  scroll-snap-stop: always;
+}
+
+.runway-testimonials-controls {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 18px;
+  margin: 0 0 48px;
+}
+
+.runway-testimonials-arrow {
+  width: 42px;
+  height: 42px;
+  border: 1px solid rgba(255,255,255,.18);
+  border-radius: 50%;
+  background: transparent;
+  color: #fff;
+  font-size: 18px;
+  line-height: 1;
+  cursor: pointer;
+  transition: opacity .2s ease, border-color .2s ease, background .2s ease;
+}
+
+.runway-testimonials-arrow:hover:not(:disabled),
+.runway-testimonials-arrow:focus-visible:not(:disabled) {
+  border-color: #b794ff;
+  background: rgba(183,148,255,.10);
+  outline: none;
+}
+
+.runway-testimonials-arrow:disabled {
+  opacity: .28;
+  cursor: default;
+}
+
+.runway-testimonials-dots {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+}
+
+.runway-testimonials-dot {
+  width: 7px;
+  height: 7px;
+  padding: 0;
+  border: 0;
+  border-radius: 50%;
+  background: rgba(255,255,255,.28);
+  cursor: pointer;
+  transition: transform .2s ease, background .2s ease;
+}
+
+.runway-testimonials-dot.is-active {
+  background: #b794ff;
+  transform: scale(1.35);
+}
+
+.runway-testimonials-dot:focus-visible {
+  outline: 2px solid #b794ff;
+  outline-offset: 3px;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .runway-testimonials-carousel {
+    scroll-behavior: auto;
+  }
+}
